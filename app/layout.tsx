@@ -16,6 +16,14 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${notoSansKr.variable} font-sans`}>
+      <head>
+        <script 
+          async 
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1133994205573957"
+          crossOrigin="anonymous"
+        />
+        {/* Google AdSense 코드는 여기에 들어갈 예정입니다 */}
+      </head>
       <body className={notoSansKr.className}>
         <AuthProvider>
           <LayoutWrapper>{children}</LayoutWrapper>
@@ -24,4 +32,3 @@ export default function RootLayout({
     </html>
   )
 }
-
