@@ -56,3 +56,4 @@ export function useAuth() {
 
   return { user, loading, error, signIn, signOut, clearAuthState };
 }
+

@@ -15,3 +15,4 @@ export const quizData: QuizItem[] = [
   { korean: "네, 알겠습니다", english: "Yes, I understand" },
   { korean: "천천히 말씀해 주세요", english: "Please speak slowly" }
 ];
+
