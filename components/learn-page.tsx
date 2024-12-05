@@ -105,7 +105,7 @@ export default function LearnPage() {
       </header>
 
       {!selectedSubject ? (
-        <section className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 justify-items-center" aria-label="학습 주제">
+        <section className="grid grid-cols-[repeat(auto-fit,minmax(220px,1fr))] gap-4 justify-items-center" aria-label="학습 주제">
           {subjects.map((subject) => (
             <Card 
               key={subject.id} 
@@ -164,4 +164,3 @@ export default function LearnPage() {
     </div>
   )
 }
-

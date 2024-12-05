@@ -42,8 +42,8 @@ export default function Sidebar() {
                 }`}
                 asChild
               >
-                <Link href={href}>
-                  <Icon className="mr-2 h-4 w-4" />
+                <Link href={href} style={{ fontSize: '20px' }}>
+                  <Icon className="mr-2 h-6 w-6" />
                   {label}
                 </Link>
               </Button>
@@ -72,4 +72,3 @@ export default function Sidebar() {
     </aside>
   )
 }
-
