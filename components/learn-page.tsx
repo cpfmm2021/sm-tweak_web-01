@@ -90,7 +90,7 @@ export default function LearnPage() {
   return (
     <div className="p-6 md:p-10 space-y-6">
       <header className="flex justify-between items-center">
-        <h1 className="text-2xl font-bold">
+        <h1 className="text-3xl font-bold">
           {selectedSubject ? selectedSubject : "과목 선택"}
         </h1>
         <div className="flex items-center space-x-4">
@@ -143,6 +143,7 @@ export default function LearnPage() {
         </section>
       ) : (
         <section className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4" aria-label="학습 주제">
+          <div className="tracking-tight text-3xl font-bold">학습기록</div>
           {topics.map((topic) => (
             <Card key={topic.id} className="cursor-pointer hover:shadow-lg transition-shadow">
               <CardContent className="p-4">

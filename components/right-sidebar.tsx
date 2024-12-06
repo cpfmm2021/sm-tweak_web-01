@@ -3,7 +3,7 @@
 import { useState } from 'react'
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { ChevronDown, Star, X, Ticket, AlignLeft } from 'lucide-react'
+import { ChevronDown, Star, X, Ticket, AlignLeft, ChevronsUpDown } from 'lucide-react'
 import LevelSelectModal from './level-select-modal'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 
@@ -43,6 +43,8 @@ export default function RightSidebar() {
   const [isLevelModalOpen, setIsLevelModalOpen] = useState(false)
   const [currentLevel, setCurrentLevel] = useState('BEGINNER')
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [open, setOpen] = useState(false);
+  const [value, setValue] = useState(selectedPeriod);
 
   const toggleModal = () => setIsModalOpen(!isModalOpen)
 
@@ -56,7 +58,7 @@ export default function RightSidebar() {
   };
 
   return (
-    <aside style={{ width: '30rem' }} className="h-screen bg-background border-l p-4 flex flex-col space-y-4">
+    <aside style={{ width: '30rem' }} className="h-screen bg-[#FAFAFA] border-l border-[#E4E4E7] p-6 flex flex-col space-y-6">
       <div className="flex justify-between items-center">
         <div className="flex items-center space-x-2">
           <Ticket className="h-5 w-5" />
@@ -87,59 +89,65 @@ export default function RightSidebar() {
           <span className="text-sm font-medium">{currentLevel}</span>
         </Button>
       </div>
-      
-      <Card className="bg-gradient-to-r from-purple-500 to-indigo-600 text-white h-64">
+
+      <Card className="bg-gradient-to-r from-[#8B5CF6] to-[#7C3AED] text-white shadow-sm">
         <CardHeader>
-          <CardTitle className="text-white text-lg">프리미엄 구독하기</CardTitle>
+          <CardTitle className="text-3xl font-bold text-white">프리미엄 구독하기</CardTitle>
         </CardHeader>
-        <CardContent className="flex flex-col justify-end p-6">
-          <p className="text-sm text-purple-100 whitespace-nowrap overflow-hidden text-overflow-ellipsis">
-            광고 제거 및 무제한 AI 기능!
-          </p>
-          <Button variant="secondary" className="mt-8 w-full bg-white text-purple-700 hover:bg-purple-100">
-            요금제 구독하기
+        <CardContent className="flex flex-col justify-end space-y-4">
+          <div className="flex items-center space-x-2">
+            <Star className="h-5 w-5 text-yellow-400" />
+            <p className="text-sm text-white/90">무제한 문제 풀이</p>
+          </div>
+          <div className="flex items-center space-x-2">
+            <AlignLeft className="h-5 w-5 text-yellow-400" />
+            <p className="text-sm text-white/90">모든 주제 학습 가능</p>
+          </div>
+          <div className="flex items-center space-x-2">
+            <Ticket className="h-5 w-5 text-yellow-400" />
+            <p className="text-sm text-white/90">프리미엄 혜택 제공</p>
+          </div>
+          <Button variant="secondary" className="w-full mt-4 bg-white text-[#7C3AED] hover:bg-white/90">
+            구독하기
           </Button>
         </CardContent>
       </Card>
 
-      <Card>
-        <CardHeader className="pb-2">
+      <Card className="w-full bg-white shadow-sm">
+        <CardHeader>
           <div className="flex justify-between items-center">
-            <CardTitle className="text-base">학습 기록</CardTitle>
-            <div className="relative">
-              <button onClick={toggleDropdown} className="flex h-10 items-center justify-between rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 [&>span]:line-clamp-1 w-[100px]">
-                <span style={{ pointerEvents: 'none' }}>{selectedPeriod}</span>
-                <ChevronDown className="h-4 w-4 opacity-50" />
-              </button>
-              {isDropdownOpen && (
-                <ul className="absolute bg-white border rounded-md shadow-lg mt-2 w-[100px]">
-                  {periods.map((period) => (
-                    <li key={period} className="px-4 py-2 hover:bg-gray-100" onClick={() => { setSelectedPeriod(period); toggleDropdown(); }}>
-                      {period}
-                    </li>
-                  ))}
-                </ul>
-              )}
-            </div>
+            <CardTitle className="text-3xl font-bold">학습 기록</CardTitle>
+            <Select defaultValue={selectedPeriod} onValueChange={setSelectedPeriod}>
+              <SelectTrigger className="w-[180px] z-50">
+                <SelectValue placeholder="기간 선택" />
+              </SelectTrigger>
+              <SelectContent className="z-50">
+                {periods.map((period) => (
+                  <SelectItem key={period} value={period}>
+                    {period}
+                  </SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
           </div>
         </CardHeader>
         <CardContent>
           <div className="grid grid-cols-2 gap-4">
-            <div className="text-center p-2 bg-muted rounded-lg w-[180px] h-[180px] relative">
+            <div className="text-center p-4 bg-[#F4F4F5] rounded-xl w-[180px] h-[180px] relative">
               <p className="text-[18px] font-medium text-muted-foreground absolute top-4 left-4">총문제</p>
-              <p className="text-6xl font-bold text-green-500 absolute bottom-4 right-4">6</p>
+              <p className="text-6xl font-bold text-[#22C55E] absolute bottom-4 right-4">6</p>
             </div>
-            <div className="text-center p-2 bg-muted rounded-lg w-[180px] h-[180px] relative">
+            <div className="text-center p-4 bg-[#F4F4F5] rounded-xl w-[180px] h-[180px] relative">
               <p className="text-[18px] font-medium text-muted-foreground absolute top-4 left-4">정답률</p>
-              <p className="text-6xl font-bold text-green-500 absolute bottom-4 right-4">60<span className="text-2xl">%</span></p>
+              <p className="text-6xl font-bold text-[#22C55E] absolute bottom-4 right-4">60<span className="text-2xl">%</span></p>
             </div>
-            <div className="text-center p-2 bg-muted rounded-lg w-[180px] h-[180px] relative">
+            <div className="text-center p-4 bg-[#F4F4F5] rounded-xl w-[180px] h-[180px] relative">
               <p className="text-[18px] font-medium text-muted-foreground absolute top-4 left-4">정답</p>
-              <p className="text-6xl font-bold text-orange-500 absolute bottom-4 right-4">60</p>
+              <p className="text-6xl font-bold text-[#F97316] absolute bottom-4 right-4">60</p>
             </div>
-            <div className="text-center p-2 bg-muted rounded-lg w-[180px] h-[180px] relative">
+            <div className="text-center p-4 bg-[#F4F4F5] rounded-xl w-[180px] h-[180px] relative">
               <p className="text-[18px] font-medium text-muted-foreground absolute top-4 left-4">오답</p>
-              <p className="text-6xl font-bold text-pink-500 absolute bottom-4 right-4">60</p>
+              <p className="text-6xl font-bold text-[#EC4899] absolute bottom-4 right-4">60</p>
             </div>
           </div>
         </CardContent>
@@ -159,10 +167,12 @@ export default function RightSidebar() {
           </CardContent>
         </Card>
       </div>
+      
       <LevelSelectModal
         open={isLevelModalOpen}
         onOpenChange={setIsLevelModalOpen}
-        onSelect={handleLevelSelect}
+        currentLevel={currentLevel}
+        onLevelSelect={setCurrentLevel}
       />
     </aside>
   )
