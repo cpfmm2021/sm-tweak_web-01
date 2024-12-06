@@ -907,6 +907,9 @@ video {
 .h-\[150px\] {
   height: 150px;
 }
+.h-\[180px\] {
+  height: 180px;
+}
 .max-h-\[300px\] {
   max-height: 300px;
 }
@@ -1009,6 +1012,9 @@ video {
 }
 .w-\[150px\] {
   width: 150px;
+}
+.w-\[180px\] {
+  width: 180px;
 }
 .min-w-\[8rem\] {
   min-width: 8rem;
