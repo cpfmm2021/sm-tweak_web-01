@@ -125,21 +125,21 @@ export default function RightSidebar() {
         </CardHeader>
         <CardContent>
           <div className="grid grid-cols-2 gap-4">
-            <div className="text-center p-2 bg-muted rounded-lg w-[180px] h-[180px] flex flex-col justify-center">
-              <p className="text-[18px] font-medium text-muted-foreground ml-12 mt-12">총문제</p>
-              <p className="text-2xl font-bold text-green-500">6</p>
+            <div className="text-center p-2 bg-muted rounded-lg w-[180px] h-[180px] relative">
+              <p className="text-[18px] font-medium text-muted-foreground absolute top-4 left-4">총문제</p>
+              <p className="text-6xl font-bold text-green-500 absolute bottom-4 right-4">6</p>
             </div>
-            <div className="text-center p-2 bg-muted rounded-lg w-[180px] h-[180px] flex flex-col justify-center">
-              <p className="text-[18px] font-medium text-muted-foreground ml-12 mt-12">정답률</p>
-              <p className="text-2xl font-bold text-green-500">60<span className="text-base">%</span></p>
+            <div className="text-center p-2 bg-muted rounded-lg w-[180px] h-[180px] relative">
+              <p className="text-[18px] font-medium text-muted-foreground absolute top-4 left-4">정답률</p>
+              <p className="text-6xl font-bold text-green-500 absolute bottom-4 right-4">60<span className="text-2xl">%</span></p>
             </div>
-            <div className="text-center p-2 bg-muted rounded-lg w-[180px] h-[180px] flex flex-col justify-center">
-              <p className="text-[18px] font-medium text-muted-foreground ml-12 mt-12">정답</p>
-              <p className="text-2xl font-bold text-orange-500">60</p>
+            <div className="text-center p-2 bg-muted rounded-lg w-[180px] h-[180px] relative">
+              <p className="text-[18px] font-medium text-muted-foreground absolute top-4 left-4">정답</p>
+              <p className="text-6xl font-bold text-orange-500 absolute bottom-4 right-4">60</p>
             </div>
-            <div className="text-center p-2 bg-muted rounded-lg w-[180px] h-[180px] flex flex-col justify-center">
-              <p className="text-[18px] font-medium text-muted-foreground ml-12 mt-12">오답</p>
-              <p className="text-2xl font-bold text-pink-500">60</p>
+            <div className="text-center p-2 bg-muted rounded-lg w-[180px] h-[180px] relative">
+              <p className="text-[18px] font-medium text-muted-foreground absolute top-4 left-4">오답</p>
+              <p className="text-6xl font-bold text-pink-500 absolute bottom-4 right-4">60</p>
             </div>
           </div>
         </CardContent>
