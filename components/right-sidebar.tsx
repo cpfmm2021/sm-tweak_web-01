@@ -126,19 +126,19 @@ export default function RightSidebar() {
         <CardContent>
           <div className="grid grid-cols-2 gap-4">
             <div className="text-center p-2 bg-muted rounded-lg w-[180px] h-[180px] flex flex-col justify-center">
-              <p className="text-sm text-muted-foreground">총문제</p>
+              <p className="text-[18px] font-medium text-muted-foreground ml-12 mt-12">총문제</p>
               <p className="text-2xl font-bold text-green-500">6</p>
             </div>
             <div className="text-center p-2 bg-muted rounded-lg w-[180px] h-[180px] flex flex-col justify-center">
-              <p className="text-sm text-muted-foreground">정답률</p>
+              <p className="text-[18px] font-medium text-muted-foreground ml-12 mt-12">정답률</p>
               <p className="text-2xl font-bold text-green-500">60<span className="text-base">%</span></p>
             </div>
             <div className="text-center p-2 bg-muted rounded-lg w-[180px] h-[180px] flex flex-col justify-center">
-              <p className="text-sm text-muted-foreground">정답</p>
+              <p className="text-[18px] font-medium text-muted-foreground ml-12 mt-12">정답</p>
               <p className="text-2xl font-bold text-orange-500">60</p>
             </div>
             <div className="text-center p-2 bg-muted rounded-lg w-[180px] h-[180px] flex flex-col justify-center">
-              <p className="text-sm text-muted-foreground">오답</p>
+              <p className="text-[18px] font-medium text-muted-foreground ml-12 mt-12">오답</p>
               <p className="text-2xl font-bold text-pink-500">60</p>
             </div>
           </div>
