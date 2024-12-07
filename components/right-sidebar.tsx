@@ -154,14 +154,14 @@ export default function RightSidebar() {
       </Card>
 
       <div className="mt-auto">
-        <Card className="bg-muted">
-          <CardContent className="p-4">
-            <div className="text-center">
-              <p className="font-bold mb-2">전면 광고</p>
-              <p className="text-sm text-muted-foreground mb-4">광고 제거하기</p>
-              <Button variant="outline" className="w-full" onClick={() => {}}>
+        <Card className="bg-[#FAFAFA] border border-[#E4E4E7]">
+          <CardContent className="p-6">
+            <div className="text-center space-y-2">
+              <h3 className="text-xl font-bold">전면 광고</h3>
+              <p className="text-sm text-muted-foreground">광고를 제거하고 싶다면?</p>
+              <Button variant="outline" className="w-full mt-2 bg-white border-[#E4E4E7] hover:bg-gray-50" onClick={() => {}}>
                 <X className="mr-2 h-4 w-4" />
-                광고 제거
+                광고 제거하기
               </Button>
             </div>
           </CardContent>

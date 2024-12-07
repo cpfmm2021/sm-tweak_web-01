@@ -2,10 +2,11 @@
 
 import Image from 'next/image'
 import { Button } from "@/components/ui/button"
-import { Card, CardContent } from "@/components/ui/card"
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { useState, useEffect } from 'react'
 import { useAuthContext } from '@/contexts/AuthContext'
 import { useRouter } from 'next/navigation'
+import { Star, AlignLeft, Trophy, Medal, Clock, CheckCircle } from "lucide-react"
 
 const subjects = [
   { 
@@ -89,58 +90,146 @@ export default function LearnPage() {
 
   return (
     <div className="p-6 md:p-10 space-y-6">
-      <header className="flex justify-between items-center">
-        <h1 className="text-3xl font-bold">
-          {selectedSubject ? selectedSubject : "과목 선택"}
-        </h1>
+      <header className="flex flex-col gap-4 mb-8">
         <div className="flex items-center space-x-4">
-          <div className="flex items-center space-x-4">
-            {selectedSubject && (
-              <Button variant="outline" onClick={() => setSelectedSubject(null)}>
-                뒤로 가기
-              </Button>
-            )}
-          </div>
+          {selectedSubject && (
+            <Button variant="outline" onClick={() => setSelectedSubject(null)}>
+              뒤로 가기
+            </Button>
+          )}
         </div>
       </header>
 
       {!selectedSubject ? (
-        <section className="grid grid-cols-[repeat(auto-fit,minmax(220px,1fr))] gap-4 justify-items-center" aria-label="학습 주제">
-          {subjects.map((subject) => (
-            <Card 
-              key={subject.id} 
-              className="w-full max-w-[220px] aspect-[3/4] cursor-pointer hover:shadow-lg transition-shadow overflow-hidden flex-shrink-0 relative mx-auto"
-              onClick={() => setSelectedSubject(subject.name)}
-            >
-              <div className="relative h-full">
-                <Image 
-                  src={subject.image}
-                  alt={subject.name}
-                  layout="fill"
-                  objectFit="cover"
-                  className="object-center"
-                />
-                <div className={`absolute bottom-0 left-0 right-0 bg-opacity-90 p-4 flex justify-between items-center ${
-                  subject.id === 1 ? 'bg-[#915044]' :
-                  subject.id === 2 ? 'bg-[#426B8D]' :
-                  subject.id === 3 ? 'bg-[#5D7176]' :
-                  subject.id === 4 ? 'bg-[#896E70]' :
-                  subject.id === 5 ? 'bg-[#957D5B]' :
-                  subject.id === 6 ? 'bg-[#6E7660]' :
-                  'bg-[#5B8B7A]'
-                }`}>
-                  <div>
-                    <h4 className="text-white text-base font-medium">{subject.name}</h4>
-                    <p className="text-white text-xs opacity-80">{subject.subtext}</p>
-                  </div>
-                  <Button variant="default" size="sm" className="rounded-full transition-colors duration-200 bg-white text-black hover:bg-black hover:text-white">
-                    OPEN
-                  </Button>
-                </div>
+        <>
+          <Card className="w-full bg-white shadow-sm">
+            <CardHeader className="pb-2">
+              <CardTitle className="text-3xl font-bold">과목 선택</CardTitle>
+            </CardHeader>
+            <CardContent className="pt-0">
+              <div className="flex flex-wrap gap-2 justify-start">
+                {subjects.map((subject) => (
+                  <Card 
+                    key={subject.id} 
+                    className="w-[220px] aspect-[3/4] cursor-pointer hover:shadow-lg transition-shadow overflow-hidden flex-shrink-0 relative"
+                    onClick={() => setSelectedSubject(subject.name)}
+                  >
+                    <div className="relative h-full">
+                      <Image 
+                        src={subject.image}
+                        alt={subject.name}
+                        layout="fill"
+                        objectFit="cover"
+                        className="object-center"
+                      />
+                      <div className={`absolute bottom-0 left-0 right-0 bg-opacity-90 p-4 flex justify-between items-center ${
+                        subject.id === 1 ? 'bg-[#915044]' :
+                        subject.id === 2 ? 'bg-[#426B8D]' :
+                        subject.id === 3 ? 'bg-[#5D7176]' :
+                        subject.id === 4 ? 'bg-[#896E70]' :
+                        subject.id === 5 ? 'bg-[#957D5B]' :
+                        subject.id === 6 ? 'bg-[#6E7660]' :
+                        'bg-[#5B8B7A]'
+                      }`}>
+                        <div>
+                          <h4 className="text-white text-base font-medium">{subject.name}</h4>
+                          <p className="text-white text-xs opacity-80">{subject.subtext}</p>
+                        </div>
+                        <Button variant="default" size="sm" className="rounded-full transition-colors duration-200 bg-white text-black hover:bg-black hover:text-white">
+                          OPEN
+                        </Button>
+                      </div>
+                    </div>
+                  </Card>
+                ))}
               </div>
+            </CardContent>
+          </Card>
+
+          <section className="mt-8" aria-label="학습 도전">
+            <Card className="w-full bg-white shadow-sm">
+              <CardHeader className="pb-2">
+                <CardTitle className="text-3xl font-bold">학습 도전</CardTitle>
+              </CardHeader>
+              <CardContent className="pt-0">
+                <div className="flex flex-wrap gap-2 justify-start">
+                  <div className="w-[220px] aspect-square flex flex-col justify-between p-6 bg-[#F4F4F5] rounded-xl">
+                    <div className="flex items-center gap-3">
+                      <div className="bg-[#22C55E] rounded-full p-2">
+                        <Star className="h-5 w-5 text-white" />
+                      </div>
+                      <div>
+                        <p className="font-semibold">연속 학습</p>
+                        <p className="text-sm text-muted-foreground">3일 연속으로 학습했어요!</p>
+                      </div>
+                    </div>
+                    <div className="text-6xl font-bold text-[#22C55E] self-end">3</div>
+                  </div>
+                  <div className="w-[220px] aspect-square flex flex-col justify-between p-6 bg-[#F4F4F5] rounded-xl">
+                    <div className="flex items-center gap-3">
+                      <div className="bg-[#F97316] rounded-full p-2">
+                        <AlignLeft className="h-5 w-5 text-white" />
+                      </div>
+                      <div>
+                        <p className="font-semibold">오늘의 목표</p>
+                        <p className="text-sm text-muted-foreground">목표까지 5문제 남았어요!</p>
+                      </div>
+                    </div>
+                    <div className="text-6xl font-bold text-[#F97316] self-end">5</div>
+                  </div>
+                  <div className="w-[220px] aspect-square flex flex-col justify-between p-6 bg-[#F4F4F5] rounded-xl">
+                    <div className="flex items-center gap-3">
+                      <div className="bg-[#EC4899] rounded-full p-2">
+                        <Trophy className="h-5 w-5 text-white" />
+                      </div>
+                      <div>
+                        <p className="font-semibold">획득 포인트</p>
+                        <p className="text-sm text-muted-foreground">이번 주 획득한 포인트예요!</p>
+                      </div>
+                    </div>
+                    <div className="text-6xl font-bold text-[#EC4899] self-end">120</div>
+                  </div>
+                  <div className="w-[220px] aspect-square flex flex-col justify-between p-6 bg-[#F4F4F5] rounded-xl">
+                    <div className="flex items-center gap-3">
+                      <div className="bg-[#6366F1] rounded-full p-2">
+                        <Medal className="h-5 w-5 text-white" />
+                      </div>
+                      <div>
+                        <p className="font-semibold">랭킹</p>
+                        <p className="text-sm text-muted-foreground">상위 10%의 실력이에요!</p>
+                      </div>
+                    </div>
+                    <div className="text-6xl font-bold text-[#6366F1] self-end">127</div>
+                  </div>
+                  <div className="w-[220px] aspect-square flex flex-col justify-between p-6 bg-[#F4F4F5] rounded-xl">
+                    <div className="flex items-center gap-3">
+                      <div className="bg-[#8B5CF6] rounded-full p-2">
+                        <Clock className="h-5 w-5 text-white" />
+                      </div>
+                      <div>
+                        <p className="font-semibold">학습 시간</p>
+                        <p className="text-sm text-muted-foreground">오늘 총 학습 시간이에요!</p>
+                      </div>
+                    </div>
+                    <div className="text-6xl font-bold text-[#8B5CF6] self-end">2.5</div>
+                  </div>
+                  <div className="w-[220px] aspect-square flex flex-col justify-between p-6 bg-[#F4F4F5] rounded-xl">
+                    <div className="flex items-center gap-3">
+                      <div className="bg-[#14B8A6] rounded-full p-2">
+                        <CheckCircle className="h-5 w-5 text-white" />
+                      </div>
+                      <div>
+                        <p className="font-semibold">완료한 문제</p>
+                        <p className="text-sm text-muted-foreground">오늘 푼 문제 수예요!</p>
+                      </div>
+                    </div>
+                    <div className="text-6xl font-bold text-[#14B8A6] self-end">15</div>
+                  </div>
+                </div>
+              </CardContent>
             </Card>
-          ))}
-        </section>
+          </section>
+        </>
       ) : (
         <section className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4" aria-label="학습 주제">
           <div className="tracking-tight text-3xl font-bold">학습기록</div>
