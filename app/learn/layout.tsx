@@ -1,8 +1,8 @@
 'use client'
 
 import MainLayoutClient from '@/components/MainLayoutClient'
-import Sidebar from '@/components/Sidebar'
-import RightSidebar from '@/components/right-sidebar'
+import { Sidebar } from '@/components/sidebar'
+import { RightSidebar } from '@/components/RightSidebar'
 
 export default function LearnLayout({
   children,
