@@ -113,7 +113,10 @@ export default function LearnPage() {
                   <Card 
                     key={subject.id} 
                     className="w-[176px] aspect-[3/4] cursor-pointer hover:shadow-lg transition-shadow overflow-hidden flex-shrink-0"
-                    onClick={() => setSelectedSubject(subject.name)}
+                    onClick={() => {
+                      setSelectedSubject(subject.name)
+                      router.push(`/learn/${subject.name.toLowerCase()}`)
+                    }}
                   >
                     <div className="relative h-full">
                       <Image 
