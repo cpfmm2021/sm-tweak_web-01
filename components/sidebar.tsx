@@ -6,7 +6,7 @@ import { useAuthContext } from '@/contexts/AuthContext'
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { LogOut } from 'lucide-react'
 
-export default function Sidebar() {
+export function Sidebar() {
   const pathname = usePathname()
   const { user, signOut } = useAuthContext()
 

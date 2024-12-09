@@ -2,7 +2,7 @@
 
 import MainLayoutClient from '@/components/MainLayoutClient'
 import { Sidebar } from '@/components/sidebar'
-import { RightSidebar } from '@/components/RightSidebar'
+import { RightSidebar } from '@/components/right-sidebar'
 
 export default function LearnLayout({
   children,

@@ -3,7 +3,7 @@
 import { Card, CardContent, CardHeader } from "@/components/ui/card"
 import { Star, AlignLeft, Trophy, Medal, Clock, CheckCircle } from "lucide-react"
 
-export default function RightSidebar() {
+export function RightSidebar() {
   return (
     <div className="p-4 space-y-4">
       <Card className="bg-white shadow-sm">

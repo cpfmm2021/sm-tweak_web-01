@@ -35,7 +35,7 @@ const difficulties = ['초급', '중급', '고급', '전문가']
 
 const periods = ['최근 7일', '최근 30일', '최근 60일', '최근 90일']
 
-export default function RightSidebar() {
+export function RightSidebar() {
   const [language, setLanguage] = useState<Language>(languages[0])
   const [difficulty, setDifficulty] = useState(difficulties[0])
   const [isModalOpen, setIsModalOpen] = useState(false)
