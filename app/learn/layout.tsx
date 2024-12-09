@@ -18,7 +18,7 @@ export default function LearnLayout({
         {/* 메인 콘텐츠: 960px (1440px - 좌우 사이드바) */}
         <main 
           className="flex-grow-0 flex-shrink-0 overflow-auto"
-          style={{ width: 'calc(1440px - 480px)' }}
+          style={{ width: '960px' }}
         >
           {children}
         </main>

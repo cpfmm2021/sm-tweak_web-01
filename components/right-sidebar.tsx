@@ -58,7 +58,7 @@ export default function RightSidebar() {
   };
 
   return (
-    <aside style={{ width: '30rem' }} className="h-screen bg-[#FAFAFA] border-l border-[#E4E4E7] p-6 flex flex-col space-y-6">
+    <aside style={{ width: '240px' }} className="h-screen bg-[#FAFAFA] border-l border-[#E4E4E7] p-6 flex flex-col space-y-6">
       <div className="flex justify-between items-center">
         <div className="flex items-center space-x-2">
           <Ticket className="h-5 w-5" />
