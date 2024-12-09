@@ -7,6 +7,7 @@ import { useState, useEffect } from 'react'
 import { useAuthContext } from '@/contexts/AuthContext'
 import { useRouter } from 'next/navigation'
 import { Star, AlignLeft, Trophy, Medal, Clock, CheckCircle } from "lucide-react"
+import Loading from './Loading'
 
 const subjects = [
   { 
@@ -81,7 +82,7 @@ export default function LearnPage() {
   }, [user, loading, router])
 
   if (loading) {
-    return <div className="flex justify-center items-center h-screen">로딩 중...</div>
+    return <Loading />
   }
 
   if (!user) {
@@ -89,7 +90,7 @@ export default function LearnPage() {
   }
 
   return (
-    <div className="p-6 md:p-10 space-y-6">
+    <div className="p-6 md:p-10 space-y-6 w-full">
       <header className="flex flex-col gap-4 mb-8">
         <div className="flex items-center space-x-4">
           {selectedSubject && (
@@ -102,12 +103,12 @@ export default function LearnPage() {
 
       {!selectedSubject ? (
         <>
-          <Card className="w-full bg-white shadow-sm">
-            <CardHeader className="pb-2">
-              <CardTitle className="text-3xl font-bold">과목 선택</CardTitle>
-            </CardHeader>
-            <CardContent className="pt-0">
-              <div className="flex flex-wrap gap-2 justify-start">
+          <div className="rounded-lg border text-card-foreground bg-white shadow-sm w-full">
+            <div className="flex flex-col space-y-1.5 p-6 pb-2">
+              <div className="tracking-tight text-3xl font-bold">과목 선택</div>
+            </div>
+            <div className="p-6 pt-0">
+              <div className="flex flex-wrap gap-4">
                 {subjects.map((subject) => (
                   <Card 
                     key={subject.id} 
@@ -118,24 +119,30 @@ export default function LearnPage() {
                       <Image 
                         src={subject.image}
                         alt={subject.name}
-                        layout="fill"
-                        objectFit="cover"
+                        fill
                         className="object-center"
                       />
-                      <div className={`absolute bottom-0 left-0 right-0 bg-opacity-90 p-4 flex justify-between items-center ${
-                        subject.id === 1 ? 'bg-[#915044]' :
-                        subject.id === 2 ? 'bg-[#426B8D]' :
-                        subject.id === 3 ? 'bg-[#5D7176]' :
-                        subject.id === 4 ? 'bg-[#896E70]' :
-                        subject.id === 5 ? 'bg-[#957D5B]' :
-                        subject.id === 6 ? 'bg-[#6E7660]' :
-                        'bg-[#5B8B7A]'
-                      }`}>
+                      <div 
+                        className="absolute bottom-0 left-0 right-0 bg-opacity-90 p-4 flex justify-between items-center"
+                        style={{
+                          backgroundColor: subject.id === 1 ? '#915044' :
+                          subject.id === 2 ? '#426B8D' :
+                          subject.id === 3 ? '#5D7176' :
+                          subject.id === 4 ? '#896E70' :
+                          subject.id === 5 ? '#957D5B' :
+                          subject.id === 6 ? '#6E7660' :
+                          '#5B8B7A'
+                        }}
+                      >
                         <div>
                           <h4 className="text-white text-base font-medium">{subject.name}</h4>
                           <p className="text-white text-xs opacity-80">{subject.subtext}</p>
                         </div>
-                        <Button variant="default" size="sm" className="rounded-full transition-colors duration-200 bg-white text-black hover:bg-black hover:text-white">
+                        <Button 
+                          variant="custom"
+                          className="bg-white text-black hover:bg-black hover:text-white"
+                          size="sm"
+                        >
                           OPEN
                         </Button>
                       </div>
@@ -143,16 +150,16 @@ export default function LearnPage() {
                   </Card>
                 ))}
               </div>
-            </CardContent>
-          </Card>
+            </div>
+          </div>
 
           <section className="mt-8" aria-label="학습 도전">
-            <Card className="w-full bg-white shadow-sm">
-              <CardHeader className="pb-2">
-                <CardTitle className="text-3xl font-bold">학습 도전</CardTitle>
-              </CardHeader>
-              <CardContent className="pt-0">
-                <div className="flex flex-wrap gap-2 justify-start">
+            <div className="rounded-lg border text-card-foreground bg-white shadow-sm w-full">
+              <div className="flex flex-col space-y-1.5 p-6 pb-2">
+                <div className="tracking-tight text-3xl font-bold">학습 도전</div>
+              </div>
+              <div className="p-6 pt-0">
+                <div className="flex flex-wrap gap-4">
                   <div className="w-[220px] aspect-square flex flex-col justify-between p-6 bg-[#F4F4F5] rounded-xl">
                     <div className="flex items-center gap-3">
                       <div className="bg-[#22C55E] rounded-full p-2">
@@ -226,8 +233,8 @@ export default function LearnPage() {
                     <div className="text-6xl font-bold text-[#14B8A6] self-end">15</div>
                   </div>
                 </div>
-              </CardContent>
-            </Card>
+              </div>
+            </div>
           </section>
         </>
       ) : (

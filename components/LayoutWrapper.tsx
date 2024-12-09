@@ -1,8 +1,6 @@
 'use client'
 
 import { usePathname, useRouter } from 'next/navigation'
-import Sidebar from '@/components/sidebar'
-import RightSidebar from '@/components/right-sidebar'
 import { useAuthContext } from '@/contexts/AuthContext'
 import { useEffect } from 'react'
 
@@ -33,12 +31,9 @@ export default function LayoutWrapper({ children }: { children: React.ReactNode 
 
   return (
     <div className="flex h-screen">
-      <Sidebar />
       <main className="flex-grow overflow-auto">
         {children}
       </main>
-      <RightSidebar />
     </div>
   )
 }
-
