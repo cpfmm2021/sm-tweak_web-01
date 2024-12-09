@@ -1037,6 +1037,12 @@ video {
 .w-\[360px\] {
   width: 360px;
 }
+.w-\[176px\] {
+  width: 176px;
+}
+.w-\[160px\] {
+  width: 160px;
+}
 .min-w-0 {
   min-width: 0px;
 }
@@ -1204,6 +1210,9 @@ video {
 .grid-cols-\[repeat\(auto-fill\2c minmax\(220px\2c 1fr\)\)\] {
   grid-template-columns: repeat(auto-fill,minmax(220px,1fr));
 }
+.grid-cols-\[repeat\(auto-fill\2c 176px\)\] {
+  grid-template-columns: repeat(auto-fill,176px);
+}
 .flex-row {
   flex-direction: row;
 }
@@ -1240,6 +1249,9 @@ video {
 .justify-between {
   justify-content: space-between;
 }
+.justify-items-center {
+  justify-items: center;
+}
 .gap-1 {
   gap: 0.25rem;
 }
@@ -1254,6 +1266,16 @@ video {
 }
 .gap-4 {
   gap: 1rem;
+}
+.gap-6 {
+  gap: 1.5rem;
+}
+.gap-x-6 {
+  -moz-column-gap: 1.5rem;
+       column-gap: 1.5rem;
+}
+.gap-y-6 {
+  row-gap: 1.5rem;
 }
 .space-x-1 > :not([hidden]) ~ :not([hidden]) {
   --tw-space-x-reverse: 0;
@@ -1302,6 +1324,9 @@ video {
 }
 .self-end {
   align-self: flex-end;
+}
+.justify-self-center {
+  justify-self: center;
 }
 .overflow-auto {
   overflow: auto;
@@ -2201,6 +2226,11 @@ body {
   width: 2px;
 }
 
+.after\:flex-auto::after {
+  content: var(--tw-content);
+  flex: 1 1 auto;
+}
+
 .after\:-translate-x-1\/2::after {
   content: var(--tw-content);
   --tw-translate-x: -50%;
@@ -3074,6 +3104,13 @@ body {
   border-color: hsl(var(--destructive));
 }
 
+@media (min-width: 200px) {
+
+  .min-\[200px\]\:justify-center {
+    justify-content: center;
+  }
+}
+
 @media (min-width: 640px) {
 
   .sm\:bottom-0 {
@@ -3118,6 +3155,14 @@ body {
 
   .sm\:gap-2\.5 {
     gap: 0.625rem;
+  }
+
+  .sm\:gap-4 {
+    gap: 1rem;
+  }
+
+  .sm\:gap-1 {
+    gap: 0.25rem;
   }
 
   .sm\:space-x-2 > :not([hidden]) ~ :not([hidden]) {
@@ -3216,6 +3261,10 @@ body {
     align-items: flex-end;
   }
 
+  .md\:gap-2 {
+    gap: 0.5rem;
+  }
+
   .md\:p-10 {
     padding: 2.5rem;
   }
@@ -3285,9 +3334,28 @@ body {
     grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 
+  .lg\:grid-cols-3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .lg\:gap-6 {
+    gap: 1.5rem;
+  }
+
+  .lg\:gap-1 {
+    gap: 0.25rem;
+  }
+
   .lg\:px-8 {
     padding-left: 2rem;
     padding-right: 2rem;
+  }
+}
+
+@media (min-width: 1280px) {
+
+  .xl\:grid-cols-5 {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
   }
 }
 
@@ -3295,6 +3363,13 @@ body {
 
   .xl-1440\:block {
     display: block;
+  }
+}
+
+@media (min-width: 1536px) {
+
+  .\32xl\:grid-cols-4 {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 }
 

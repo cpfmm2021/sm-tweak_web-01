@@ -108,11 +108,11 @@ export default function LearnPage() {
               <div className="tracking-tight text-3xl font-bold">과목 선택</div>
             </div>
             <div className="p-6 pt-0">
-              <div className="flex flex-wrap gap-4">
+              <div className="flex flex-wrap gap-6 items-start">
                 {subjects.map((subject) => (
                   <Card 
                     key={subject.id} 
-                    className="w-[220px] aspect-[3/4] cursor-pointer hover:shadow-lg transition-shadow overflow-hidden flex-shrink-0 relative"
+                    className="w-[176px] aspect-[3/4] cursor-pointer hover:shadow-lg transition-shadow overflow-hidden flex-shrink-0"
                     onClick={() => setSelectedSubject(subject.name)}
                   >
                     <div className="relative h-full">
@@ -159,8 +159,8 @@ export default function LearnPage() {
                 <div className="tracking-tight text-3xl font-bold">학습 도전</div>
               </div>
               <div className="p-6 pt-0">
-                <div className="flex flex-wrap gap-4">
-                  <div className="w-[220px] aspect-square flex flex-col justify-between p-6 bg-[#F4F4F5] rounded-xl">
+                <div className="flex flex-wrap gap-6 items-start">
+                  <div className="w-[176px] aspect-square flex flex-col justify-between p-6 bg-[#F4F4F5] rounded-xl flex-shrink-0">
                     <div className="flex items-center gap-3">
                       <div className="bg-[#22C55E] rounded-full p-2">
                         <Star className="h-5 w-5 text-white" />
@@ -172,7 +172,7 @@ export default function LearnPage() {
                     </div>
                     <div className="text-6xl font-bold text-[#22C55E] self-end">3</div>
                   </div>
-                  <div className="w-[220px] aspect-square flex flex-col justify-between p-6 bg-[#F4F4F5] rounded-xl">
+                  <div className="w-[176px] aspect-square flex flex-col justify-between p-6 bg-[#F4F4F5] rounded-xl flex-shrink-0">
                     <div className="flex items-center gap-3">
                       <div className="bg-[#F97316] rounded-full p-2">
                         <AlignLeft className="h-5 w-5 text-white" />
@@ -184,7 +184,7 @@ export default function LearnPage() {
                     </div>
                     <div className="text-6xl font-bold text-[#F97316] self-end">5</div>
                   </div>
-                  <div className="w-[220px] aspect-square flex flex-col justify-between p-6 bg-[#F4F4F5] rounded-xl">
+                  <div className="w-[176px] aspect-square flex flex-col justify-between p-6 bg-[#F4F4F5] rounded-xl flex-shrink-0">
                     <div className="flex items-center gap-3">
                       <div className="bg-[#EC4899] rounded-full p-2">
                         <Trophy className="h-5 w-5 text-white" />
@@ -196,7 +196,7 @@ export default function LearnPage() {
                     </div>
                     <div className="text-6xl font-bold text-[#EC4899] self-end">120</div>
                   </div>
-                  <div className="w-[220px] aspect-square flex flex-col justify-between p-6 bg-[#F4F4F5] rounded-xl">
+                  <div className="w-[176px] aspect-square flex flex-col justify-between p-6 bg-[#F4F4F5] rounded-xl flex-shrink-0">
                     <div className="flex items-center gap-3">
                       <div className="bg-[#6366F1] rounded-full p-2">
                         <Medal className="h-5 w-5 text-white" />
@@ -208,7 +208,7 @@ export default function LearnPage() {
                     </div>
                     <div className="text-6xl font-bold text-[#6366F1] self-end">127</div>
                   </div>
-                  <div className="w-[220px] aspect-square flex flex-col justify-between p-6 bg-[#F4F4F5] rounded-xl">
+                  <div className="w-[176px] aspect-square flex flex-col justify-between p-6 bg-[#F4F4F5] rounded-xl flex-shrink-0">
                     <div className="flex items-center gap-3">
                       <div className="bg-[#8B5CF6] rounded-full p-2">
                         <Clock className="h-5 w-5 text-white" />
@@ -220,7 +220,7 @@ export default function LearnPage() {
                     </div>
                     <div className="text-6xl font-bold text-[#8B5CF6] self-end">2.5</div>
                   </div>
-                  <div className="w-[220px] aspect-square flex flex-col justify-between p-6 bg-[#F4F4F5] rounded-xl">
+                  <div className="w-[176px] aspect-square flex flex-col justify-between p-6 bg-[#F4F4F5] rounded-xl flex-shrink-0">
                     <div className="flex items-center gap-3">
                       <div className="bg-[#14B8A6] rounded-full p-2">
                         <CheckCircle className="h-5 w-5 text-white" />
