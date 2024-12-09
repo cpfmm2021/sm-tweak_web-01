@@ -907,6 +907,15 @@ video {
 .h-svh {
   height: 100svh;
 }
+.h-\[80px\] {
+  height: 80px;
+}
+.h-\[120px\] {
+  height: 120px;
+}
+.h-\[10px\] {
+  height: 10px;
+}
 .max-h-96 {
   max-height: 24rem;
 }
@@ -1018,6 +1027,15 @@ video {
 }
 .w-\[calc\(100vw-480px\)\] {
   width: calc(100vw - 480px);
+}
+.w-\[80px\] {
+  width: 80px;
+}
+.w-\[120px\] {
+  width: 120px;
+}
+.w-\[360px\] {
+  width: 360px;
 }
 .min-w-0 {
   min-width: 0px;
@@ -1764,6 +1782,21 @@ video {
 .text-xs {
   font-size: 0.75rem;
   line-height: 1rem;
+}
+.text-\[clamp\(1\.25rem\2c 4vw\2c 1\.5rem\)\] {
+  font-size: clamp(1.25rem,4vw,1.5rem);
+}
+.text-\[clamp\(1rem\2c 3vw\2c 1\.25rem\)\] {
+  font-size: clamp(1rem,3vw,1.25rem);
+}
+.text-\[clamp\(1\.25rem\2c 3vw\2c 1\.25rem\)\] {
+  font-size: clamp(1.25rem,3vw,1.25rem);
+}
+.text-\[clamp\(1\.5rem\2c 3vw\2c 1\.25rem\)\] {
+  font-size: clamp(1.5rem,3vw,1.25rem);
+}
+.text-\[clamp\(1\.rem\2c 3vw\2c 1\.25rem\)\] {
+  font-size: clamp(1.rem,3vw,1.25rem);
 }
 .font-bold {
   font-weight: 700;

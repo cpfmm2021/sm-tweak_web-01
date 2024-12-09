@@ -58,31 +58,33 @@ export default function RightSidebar() {
   };
 
   return (
-    <aside style={{ width: '240px' }} className="h-screen bg-[#FAFAFA] border-l border-[#E4E4E7] p-6 flex flex-col space-y-6">
-      <div className="flex justify-between items-center">
-        <div className="flex items-center space-x-2">
-          <Ticket className="h-5 w-5" />
-          <span className="bg-primary text-primary-foreground text-xs font-semibold px-2 py-1 rounded-full">5</span>
+    <aside style={{ width: '360px' }} className="h-screen bg-[#FAFAFA] border-l border-[#E4E4E7] p-6 flex flex-col space-y-6">
+      <div className="flex flex-col space-y-4">
+        <div className="flex justify-between items-center">
+          <div className="flex items-center space-x-2">
+            <Ticket className="h-5 w-5" />
+            <span className="bg-primary text-primary-foreground text-xs font-semibold px-2 py-1 rounded-full">5</span>
+          </div>
+          <Select defaultValue={language.code} onValueChange={(value) => {
+            const lang = languages.find(l => l.code === value)
+            if (lang) setLanguage(lang)
+          }}>
+            <SelectTrigger className="w-[100px]">
+              <SelectValue placeholder="언어 선택" />
+            </SelectTrigger>
+            <SelectContent>
+              {languages.map((lang) => (
+                <SelectItem key={lang.code} value={lang.code}>
+                  {lang.label}
+                </SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
         </div>
-        <Select defaultValue={language.code} onValueChange={(value) => {
-          const lang = languages.find(l => l.code === value)
-          if (lang) setLanguage(lang)
-        }}>
-          <SelectTrigger className="w-[100px]">
-            <SelectValue placeholder="언어 선택" />
-          </SelectTrigger>
-          <SelectContent>
-            {languages.map((lang) => (
-              <SelectItem key={lang.code} value={lang.code}>
-                {lang.label}
-              </SelectItem>
-            ))}
-          </SelectContent>
-        </Select>
         <Button 
           variant="outline"
           size="sm"
-          className="flex items-center gap-2"
+          className="flex items-center gap-2 w-full justify-center"
           onClick={() => setIsLevelModalOpen(true)}
         >
           <AlignLeft className="h-4 w-4" />
@@ -92,7 +94,7 @@ export default function RightSidebar() {
 
       <Card className="bg-gradient-to-r from-[#8B5CF6] to-[#7C3AED] text-white shadow-sm">
         <CardHeader>
-          <CardTitle className="text-3xl font-bold text-white">프리미엄 구독하기</CardTitle>
+          <CardTitle className="tracking-tight text-2xl font-bold text-white whitespace-nowrap">프리미엄 구독하기</CardTitle>
         </CardHeader>
         <CardContent className="flex flex-col justify-end space-y-4">
           <div className="flex items-center space-x-2">
@@ -116,9 +118,9 @@ export default function RightSidebar() {
       <Card className="w-full bg-white shadow-sm">
         <CardHeader>
           <div className="flex justify-between items-center">
-            <CardTitle className="text-3xl font-bold">학습 기록</CardTitle>
+            <CardTitle className="text-2xl font-bold">학습기록</CardTitle>
             <Select defaultValue={selectedPeriod} onValueChange={setSelectedPeriod}>
-              <SelectTrigger className="w-[180px] z-50">
+              <SelectTrigger className="w-[100px] z-50">
                 <SelectValue placeholder="기간 선택" />
               </SelectTrigger>
               <SelectContent className="z-50">
@@ -133,21 +135,21 @@ export default function RightSidebar() {
         </CardHeader>
         <CardContent>
           <div className="grid grid-cols-2 gap-4">
-            <div className="text-center p-4 bg-[#F4F4F5] rounded-xl w-[180px] h-[180px] relative">
+            <div className="text-center p-4 bg-[#F4F4F5] rounded-xl w-[120px] h-[120px] relative">
               <p className="text-[18px] font-medium text-muted-foreground absolute top-4 left-4">총문제</p>
-              <p className="text-6xl font-bold text-[#22C55E] absolute bottom-4 right-4">6</p>
+              <p className="text-4xl font-bold text-[#22C55E] absolute bottom-4 right-4">6</p>
             </div>
-            <div className="text-center p-4 bg-[#F4F4F5] rounded-xl w-[180px] h-[180px] relative">
+            <div className="text-center p-4 bg-[#F4F4F5] rounded-xl w-[120px] h-[120px] relative">
               <p className="text-[18px] font-medium text-muted-foreground absolute top-4 left-4">정답률</p>
-              <p className="text-6xl font-bold text-[#22C55E] absolute bottom-4 right-4">60<span className="text-2xl">%</span></p>
+              <p className="text-4xl font-bold text-[#22C55E] absolute bottom-4 right-4">60<span className="text-2xl">%</span></p>
             </div>
-            <div className="text-center p-4 bg-[#F4F4F5] rounded-xl w-[180px] h-[180px] relative">
+            <div className="text-center p-4 bg-[#F4F4F5] rounded-xl w-[120px] h-[120px] relative">
               <p className="text-[18px] font-medium text-muted-foreground absolute top-4 left-4">정답</p>
-              <p className="text-6xl font-bold text-[#F97316] absolute bottom-4 right-4">60</p>
+              <p className="text-4xl font-bold text-[#F97316] absolute bottom-4 right-4">60</p>
             </div>
-            <div className="text-center p-4 bg-[#F4F4F5] rounded-xl w-[180px] h-[180px] relative">
+            <div className="text-center p-4 bg-[#F4F4F5] rounded-xl w-[120px] h-[120px] relative">
               <p className="text-[18px] font-medium text-muted-foreground absolute top-4 left-4">오답</p>
-              <p className="text-6xl font-bold text-[#EC4899] absolute bottom-4 right-4">60</p>
+              <p className="text-4xl font-bold text-[#EC4899] absolute bottom-4 right-4">60</p>
             </div>
           </div>
         </CardContent>

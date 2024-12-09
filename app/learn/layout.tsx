@@ -15,16 +15,16 @@ export default function LearnLayout({
         {/* 좌측 사이드바: 240px 고정 */}
         <Sidebar />
 
-        {/* 메인 콘텐츠: 960px (1440px - 좌우 사이드바) */}
+        {/* 메인 콘텐츠: 최대 960px, 화면 크기에 따라 자동 조절 */}
         <main 
-          className="flex-grow-0 flex-shrink-0 overflow-auto"
-          style={{ width: '960px' }}
+          className="flex-1 min-w-0 overflow-auto"
+          style={{ maxWidth: '960px' }}
         >
           {children}
         </main>
 
-        {/* 우측 사이드바: 240px 고정, 1024px 이상에서만 표시 */}
-        <aside className="hidden lg:flex h-screen flex-col space-y-6 bg-background border-l p-4 w-[240px] flex-shrink-0 flex-grow-0">
+        {/* 우측 사이드바: 360px 고정, 1024px 이상에서만 표시 */}
+        <aside className="hidden lg:flex h-screen flex-col space-y-6 bg-background border-l p-4 w-[360px] flex-shrink-0 flex-grow-0">
           <RightSidebar />
         </aside>
 
